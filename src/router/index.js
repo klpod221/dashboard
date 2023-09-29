@@ -8,15 +8,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     }
   ]
 });
 
 router.beforeEach((to, from, next) => {
-  const name = to.name.charAt(0).toUpperCase() + to.name.slice(1);
-  document.title = `${name} | Expense Tracker`;
-  next();
+    document.title = to.meta.title ? `${to.meta.title} | Expense Tracker` : 'Expense Tracker';
+    next();
 });
 
 export default router;
