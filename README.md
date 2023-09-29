@@ -8,6 +8,8 @@ This project is built with [Vue.js](https://vuejs.org/) and [Tailwind CSS](https
 
 You can clone this project and run it on your local machine for development and testing purposes. I will not provide any support for this project. If you have any questions, please go to [my website](https://klpod221.github.io/contact) to contact me.
 
+**Note:** Because I will deploy this project to github page with [Vite](https://vitejs.dev/), I have to define `base` in `vite.config.js` to `/expense-tracker/`. If you want to run this project on your local machine, you have to change `base` to `/` and on [router/index.js](src/router/index.js), You can change `base` to `/` or remove it. You can find more information about `base` [here](https://vitejs.dev/config/#base).
+
 ```bash
 # install dependencies
 npm install
