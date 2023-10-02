@@ -47,7 +47,7 @@ app.use(store)
 app.component('font-awesome-icon', fontAwesome)
 
 if (token) {
-  await store.dispatch('auth/profile')
+  store.dispatch('auth/profile')
 }
 
 app.mount('#app');
