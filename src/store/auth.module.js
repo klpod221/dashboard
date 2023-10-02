@@ -11,36 +11,23 @@ export const auth = {
   state: initialState,
   actions: {
     async login({ commit }, { email, password }) {
-      try {
-        const { token, user } = await authService.login(email, password)
-        commit('loginSuccess', { token, user })
-      } catch (error) {
-        commit('loginFailure')
-      }
+      const { token, user } = await authService.login(email, password)
+      commit('loginSuccess', { token, user })
     },
     logout({ commit }) {
       authService.logout()
       commit('logout')
     },
     async profile({ commit }) {
-      try {
-        const { user } = await authService.profile()
-        commit('setUser', user)
-      } catch (error) {
-        commit('loginFailure')
-      }
-    }
+      const { user } = await authService.profile()
+      commit('setUser', user)
+    },
   },
   mutations: {
     loginSuccess(state, { token, user }) {
       state.status.loggedIn = true
       state.token = token
       state.user = user
-    },
-    loginFailure(state) {
-      state.status.loggedIn = false
-      state.token = null
-      state.user = null
     },
     logout(state) {
       state.status.loggedIn = false
@@ -49,6 +36,6 @@ export const auth = {
     },
     setUser(state, user) {
       state.user = user
-    }
-  }
+    },
+  },
 }

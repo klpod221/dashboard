@@ -44,7 +44,11 @@ export default {
         await this.$store.dispatch('auth/login', data);
         this.$router.push({ name: 'home' });
       } catch (error) {
-        console.log(error);
+        this.$swal({
+          icon: 'error',
+          title: 'Login failed!',
+          text: error.response.data.message || 'Something went wrong!'
+        });
       }
     }
   }
