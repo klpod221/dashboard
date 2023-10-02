@@ -1,23 +1,63 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
-import HomeView from '../views/HomeView.vue';
+import auth from '../middleware/auth'
+import guest from '../middleware/guest'
 
-const base = '/expense-tracker/';
+import Home from '../pages/Home.vue'
+import Auth from '../pages/Auth.vue'
+
+const base = '/expense-tracker'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: base,
+      path: `${base}/`,
       name: 'home',
-      component: HomeView,
+      component: Home,
+      meta: {
+        middleware: [auth]
+      }
+    },
+    {
+      path: `${base}/login`,
+      name: 'login',
+      component: Auth,
+      meta: {
+        middleware: [guest]
+      }
     }
   ]
-});
+})
+
+function nextFactory(context, middleware, index) {
+  const subsequentMiddleware = middleware[index]
+  if (!subsequentMiddleware) return context.next
+
+  return (...parameters) => {
+    context.next(...parameters)
+    const nextMiddleware = nextFactory(context, middleware, index + 1)
+    subsequentMiddleware({ ...context, next: nextMiddleware })
+  }
+}
 
 router.beforeEach((to, from, next) => {
-    document.title = to.meta.title ? `${to.meta.title} | Expense Tracker` : 'Expense Tracker';
-    next();
-});
+  if (!to.meta.middleware) return next()
 
-export default router;
+  const middleware = Array.isArray(to.meta.middleware) ? to.meta.middleware : [to.meta.middleware]
+
+  const context = {
+    from,
+    next,
+    router,
+    to
+  }
+
+  const nextMiddleware = nextFactory(context, middleware, 1)
+
+  document.title = to.meta.title ? `${to.meta.title} | Expense Tracker` : 'Expense Tracker'
+
+  return middleware[0]({ ...context, next: nextMiddleware })
+})
+
+export default router

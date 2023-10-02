@@ -5,13 +5,14 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/expense-tracker/',
   plugins: [
     vue(),
+    "~/src/plugins/axios.js"
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/expense-tracker/'
 })
