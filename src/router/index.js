@@ -16,7 +16,7 @@ const router = createRouter({
       name: 'home',
       component: Home,
       meta: {
-        middleware: [auth]
+        middleware: [auth],
       }
     },
     {
@@ -24,7 +24,8 @@ const router = createRouter({
       name: 'login',
       component: Auth,
       meta: {
-        middleware: [guest]
+        middleware: [guest],
+        layout: 'AuthLayout',
       }
     }
   ]

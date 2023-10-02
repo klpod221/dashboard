@@ -1,7 +1,7 @@
 <template>
   <main class="flex items-center justify-center h-screen bg-gray-200">
     <div class="flex flex-col w-full max-w-sm p-10 bg-white rounded-lg shadow-md">
-      <h1 class="mb-5 text-3xl font-bold text-center">Login</h1>
+      <h1 class="mb-5 text-3xl font-bold text-center">Expense Tracker</h1>
       <form @submit.prevent="login">
         <div class="mb-5">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-600">Email</label>

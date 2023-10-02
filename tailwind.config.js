@@ -6,6 +6,11 @@ module.exports = {
   ],
   darkMode: 'media',
   theme: {
+    extend: {
+      fontFamily: {
+        'sans': ['Space Grotesk', 'sans-serif'],
+      },
+    },
     container: {
       padding: {
         DEFAULT: '15px',
