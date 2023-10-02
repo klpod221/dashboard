@@ -5,18 +5,18 @@
     <slot />
   </main>
 
-  <default-footer />
+  <default-sidebar />
 </template>
 
 <script>
 import DefaultHeader from '@/components/layouts/DefaultHeader.vue';
-import DefaultFooter from '@/components/layouts/DefaultFooter.vue';
+import DefaultSidebar from '@/components/layouts/DefaultSidebar.vue';
 
 export default {
   name: 'DefaultLayout',
   components: {
     DefaultHeader,
-    DefaultFooter,
+    DefaultSidebar,
   },
 };
 </script>

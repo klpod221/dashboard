@@ -8,7 +8,6 @@ export default defineConfig({
   base: '/expense-tracker/',
   plugins: [
     vue(),
-    "~/src/plugins/axios.js"
   ],
   resolve: {
     alias: {
