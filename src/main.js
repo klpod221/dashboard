@@ -11,7 +11,7 @@ const app = createApp(App)
 
 const token = localStorage.getItem('token')
 
-axios.defaults.baseURL = 
+axios.defaults.baseURL = import.meta.env.VITE_API_ENDPOINT || 'https://klpod221-expense.vercel.app/'
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 axios.defaults.headers.common['Accept'] = 'application/json'
 
