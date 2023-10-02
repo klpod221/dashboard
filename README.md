@@ -11,6 +11,9 @@ You can clone this project and run it on your local machine for development and 
 **Note:** Because I will deploy this project to [Github Page](https://pages.github.com/) with [Vite](https://vitejs.dev/), I have to define `base` in `vite.config.js` to `/expense-tracker/`. If you want to run this project on your local machine, you have to change `base` to `/` and on [router/index.js](src/router/index.js), You can change `base` to `/` or remove it. You can find more information about `base` [here](https://vitejs.dev/config/#base).
 
 ```bash
+# copy .env.example to .env and change the value to your own
+cp .env.example .env
+
 # install dependencies
 npm install
 
