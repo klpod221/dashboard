@@ -1,4 +1,3 @@
-class UserService {
-}
+class UserService {}
 
 export default new UserService();

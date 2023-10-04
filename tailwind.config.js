@@ -1,20 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './index.html',
-    './src/**/*.{vue,js}',
-  ],
+  content: ['./index.html', './src/**/*.{vue,js}'],
   darkMode: 'media',
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Space Grotesk', 'sans-serif'],
+        sans: ['Space Grotesk', 'sans-serif'],
       },
     },
     container: {
       padding: {
         DEFAULT: '15px',
-      }
+      },
     },
     screens: {
       sm: '640px',
@@ -27,4 +24,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

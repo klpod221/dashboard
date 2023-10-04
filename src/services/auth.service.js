@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
 class AuthService {
   async login(email, password) {
     const { data } = await axios.post('/auth/login', {
       email,
-      password
+      password,
     });
 
     if (data.token) {
@@ -13,7 +13,7 @@ class AuthService {
     }
 
     return data;
-  };
+  }
 
   async profile() {
     const { data } = await axios.get('/auth/profile');
@@ -21,11 +21,11 @@ class AuthService {
     localStorage.setItem('user', JSON.stringify(data));
 
     return data;
-  };
+  }
 
   logout() {
     localStorage.removeItem('token');
-  };
+  }
 }
 
 export default new AuthService();

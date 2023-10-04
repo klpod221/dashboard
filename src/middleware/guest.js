@@ -5,7 +5,7 @@ export default function guest({ next }) {
 
   if (isLoggedIn) {
     return next({
-      name: 'home'
+      name: 'home',
     });
   }
 

@@ -11,15 +11,15 @@ export default {
   name: 'HomePage',
   middleware: 'auth',
   computed: {
-    currentUser () {
+    currentUser() {
       return this.$store.state.auth.user;
     },
   },
   methods: {
-    logout () {
+    logout() {
       this.$store.dispatch('auth/logout');
       this.$router.push({ name: 'login' });
-    }
-  }
+    },
+  },
 };
 </script>

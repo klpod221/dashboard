@@ -1,16 +1,16 @@
-import { defineRule } from 'vee-validate'
+import { defineRule } from 'vee-validate';
 
 defineRule('required', (value) => {
   if (!value || !value.length) {
-    return 'This field is required'
+    return 'This field is required';
   }
 
-  return true
-})
+  return true;
+});
 
 defineRule('email', (value) => {
   if (!value || !value.length) {
-    return 'This field is required'
+    return 'This field is required';
   }
 
   const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -19,11 +19,11 @@ defineRule('email', (value) => {
   }
 
   return true;
-})
+});
 
 defineRule('password', (value) => {
   if (!value || !value.length) {
-    return 'This field is required'
+    return 'This field is required';
   }
 
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
@@ -31,7 +31,7 @@ defineRule('password', (value) => {
     return 'Password must be at least 8 characters, one uppercase, one lowercase and one number';
   }
 
-  return true
+  return true;
 });
 
 defineRule('min', (value, [min]) => {
@@ -40,11 +40,11 @@ defineRule('min', (value, [min]) => {
   }
 
   if (value.length < min) {
-    return `This field must be at least ${min} characters`
+    return `This field must be at least ${min} characters`;
   }
 
-  return true
-})
+  return true;
+});
 
 defineRule('max', (value, [max]) => {
   if (!value || !value.length) {
@@ -52,16 +52,16 @@ defineRule('max', (value, [max]) => {
   }
 
   if (value.length > max) {
-    return `This field must be at most ${max} characters`
+    return `This field must be at most ${max} characters`;
   }
 
-  return true
-})
+  return true;
+});
 
 defineRule('confirmed', (value, [target], ctx) => {
   if (value !== ctx.form[target]) {
-    return 'The confirmation does not match'
+    return 'The confirmation does not match';
   }
 
-  return true
-})
+  return true;
+});

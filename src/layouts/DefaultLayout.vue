@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import DefaultHeader from '@/components/layouts/DefaultHeader.vue';
-import DefaultSidebar from '@/components/layouts/DefaultSidebar.vue';
+import DefaultHeader from '@/components/layouts/DefaultHeader.vue'
+import DefaultSidebar from '@/components/layouts/DefaultSidebar.vue'
 
 export default {
   name: 'DefaultLayout',

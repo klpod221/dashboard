@@ -20,7 +20,7 @@ const router = createRouter({
       meta: {
         middleware: guest,
         layout: 'AuthLayout',
-      }
+      },
     },
     {
       path: `${base}/`,
@@ -28,7 +28,7 @@ const router = createRouter({
       component: Home,
       meta: {
         middleware: auth,
-      }
+      },
     },
     {
       path: `${base}/admin`,
@@ -36,9 +36,9 @@ const router = createRouter({
       component: HomeAdmin,
       meta: {
         middleware: isAdmin,
-      }
+      },
     },
-  ]
+  ],
 });
 
 function nextFactory(context, middleware, index) {
@@ -49,7 +49,7 @@ function nextFactory(context, middleware, index) {
     context.next(...parameters);
     const nextMiddleware = nextFactory(context, middleware, index + 1);
     subsequentMiddleware({ ...context, next: nextMiddleware });
-  }
+  };
 }
 
 router.beforeEach((to, from, next) => {
@@ -63,10 +63,10 @@ router.beforeEach((to, from, next) => {
     from,
     next,
     router,
-    to
-  }
+    to,
+  };
 
   return middleware[0]({ ...context, next: nextFactory(context, middleware, 1) });
-})
+});
 
 export default router;
