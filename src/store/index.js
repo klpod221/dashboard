@@ -7,8 +7,4 @@ const store = createStore({
   }
 });
 
-if (localStorage.getItem('token')) {
-  store.dispatch('auth/profile')
-}
-
 export default store;

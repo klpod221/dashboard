@@ -1,9 +1,10 @@
 import authService from '../services/auth.service'
 
 const token = localStorage.getItem('token')
+const user = localStorage.getItem('user')
 let initialState = { status: { loggedIn: false }, token: null, user: null }
 if (token) {
-  initialState = { status: { loggedIn: true }, token, user: null }
+  initialState = { status: { loggedIn: true }, token, user: JSON.parse(user) }
 }
 
 export const auth = {
@@ -11,16 +12,20 @@ export const auth = {
   state: initialState,
   actions: {
     async login({ commit }, { email, password }) {
-      const { token, user } = await authService.login(email, password)
-      commit('loginSuccess', { token, user })
+      const data = await authService.login(email, password) // data = { token, user }
+      commit('loginSuccess', data)
     },
     logout({ commit }) {
       authService.logout()
       commit('logout')
     },
     async profile({ commit }) {
-      const { user } = await authService.profile()
-      commit('setUser', user)
+      try {
+        const user = await authService.profile()
+        commit('setUser', user)
+      } catch (error) {
+        commit('logout')
+      }
     },
   },
   mutations: {

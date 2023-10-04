@@ -14,8 +14,9 @@ const app = createApp(App)
 
 app.component('font-awesome-icon', fontAwesome)
 app.config.globalProperties.$axios = axios
-app.use(router)
 app.use(store)
+app.use(router)
 app.use(VueSweetalert2)
+
 
 app.mount('#app');

@@ -9,6 +9,7 @@ class AuthService {
 
     if (data.token) {
       localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
     }
 
     return data;
@@ -16,6 +17,9 @@ class AuthService {
 
   async profile() {
     const { data } = await axios.get('/auth/profile');
+
+    localStorage.setItem('user', JSON.stringify(data));
+
     return data;
   };
 
