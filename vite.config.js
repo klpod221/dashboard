@@ -7,6 +7,10 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   base: '/expense-tracker/',
   plugins: [vue()],
+  server: {
+    port: 3000,
+    open: true,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

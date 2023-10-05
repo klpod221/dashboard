@@ -20,6 +20,7 @@ const router = createRouter({
       meta: {
         middleware: guest,
         layout: 'AuthLayout',
+        title: 'Login',
       },
     },
     {
@@ -28,6 +29,7 @@ const router = createRouter({
       component: Home,
       meta: {
         middleware: auth,
+        title: 'Dashboard',
       },
     },
     {
@@ -36,6 +38,7 @@ const router = createRouter({
       component: HomeAdmin,
       meta: {
         middleware: isAdmin,
+        title: 'Dashboard Admin',
       },
     },
   ],

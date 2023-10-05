@@ -11,6 +11,14 @@
     @apply bg-gray-300 text-gray-700 antialiased;
   }
 
+  .ml-22 {
+    margin-left: 5.5rem;
+  }
+
+  .ml-18 {
+    margin-left: 4.5rem;
+  }
+
   .page {
     @apply min-h-screen flex flex-col;
   }

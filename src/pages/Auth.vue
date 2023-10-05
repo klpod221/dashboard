@@ -1,5 +1,5 @@
 <template>
-  <main class="flex items-center justify-center h-screen">
+  <main class="flex items-center justify-center h-screen overflow-hidden">
     <div class="flex flex-col w-full max-w-sm p-10 bg-white rounded-lg shadow-md">
       <h1 class="mb-5 text-3xl font-bold text-center">Expense Tracker</h1>
       <FormValidate @submit="onSubmit" :validation-schema="validationSchema" v-slot="{ errors }">

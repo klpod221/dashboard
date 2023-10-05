@@ -13,7 +13,8 @@ library.add(
     fs.faUserFriends,
     fs.faCog,
     fs.faBell,
-    fs.faHeart
+    fs.faHeart,
+    fs.faSignOutAlt,
 );
 
 export default FontAwesomeIcon;

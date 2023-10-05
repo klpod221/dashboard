@@ -1,7 +1,5 @@
 <template>
-  <main class="auth">
-    <slot />
-  </main>
+  <slot />
 
   <auth-footer />
 </template>

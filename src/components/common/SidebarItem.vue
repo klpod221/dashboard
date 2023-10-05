@@ -1,13 +1,13 @@
 <template>
   <a
-    class="flex items-center md:justify-start justify-center w-full h-12 px-3 mt-2 rounded-md hover:bg-gray-300 group-hover:justify-start cursor-pointer"
+    class="flex items-center sm:justify-center group-hover:sm:justify-start md:justify-start w-full h-12 px-3 mt-2 rounded-md hover:bg-gray-300 group-hover:justify-start cursor-pointer"
     :class="{
       'bg-gray-300': isActive,
     }"
     @click.prevent="$router.push(route)"
   >
     <font-awesome-icon :icon="icon" class="text-base w-4" />
-    <span class="ml-2 text-sm font-medium hidden group-hover:block md:block">{{ text }}</span>
+    <span class="ml-2 text-sm font-medium sm:hidden group-hover:sm:block md:block">{{ text }}</span>
   </a>
 </template>
 

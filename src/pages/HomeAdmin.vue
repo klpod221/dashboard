@@ -1,9 +1,7 @@
 <template>
-  <main>
-    <h1>Home</h1>
-    <p>Welcome, {{ currentUser?.name }} {{ currentUser?.roles }}</p>
-    <button @click="logout">Logout</button>
-  </main>
+  <h1>Home</h1>
+  <p>Welcome, {{ currentUser?.name }} {{ currentUser?.roles }}</p>
+  <button @click="logout">Logout</button>
 </template>
 
 <script>
