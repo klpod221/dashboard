@@ -1,13 +1,19 @@
 <template>
-  <h1>Home</h1>
-  <p>Welcome, {{ currentUser?.name }}</p>
-  <button @click="logout">Logout</button>
+  <CardContainer>
+    <h1>Home</h1>
+    <p>Welcome, {{ currentUser?.name }}</p>
+    <button @click="logout">Logout</button>
+  </CardContainer>
 </template>
 
 <script>
+import CardContainer from '../components/common/CardContainer.vue';
+
 export default {
   name: 'HomePage',
-  middleware: 'auth',
+  components: {
+    CardContainer,
+  },
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
