@@ -57,6 +57,7 @@ export default {
   methods: {
     async onSubmit(values) {
       try {
+        this.$loading.show();
         await this.$store.dispatch('auth/login', values);
         this.$router.push({ name: 'home' });
       } catch (error) {
@@ -65,6 +66,8 @@ export default {
           title: 'Login failed!',
           text: error.response.data.message || 'Something went wrong!',
         });
+      } finally {
+        this.$loading.hide();
       }
     },
   },

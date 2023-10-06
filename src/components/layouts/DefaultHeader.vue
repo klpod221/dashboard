@@ -46,7 +46,7 @@
 
         <!-- drop-down -->
         <div
-          class="absolute right-0 top-8 w-44 bg-white border border-gray-300 rounded-md shadow-md group-hover:block hidden"
+          class="absolute z-50 right-0 top-8 w-44 bg-white border border-gray-300 rounded-md shadow-md group-hover:block hidden"
         >
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
             <font-awesome-icon icon="user" class="mr-2 w-4" /> Profile
@@ -54,7 +54,7 @@
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
             <font-awesome-icon icon="cog" class="mr-2 w-4" /> Settings
           </a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          <a @click.prevent="logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
             <font-awesome-icon icon="sign-out-alt" class="mr-2 w-4" /> Logout
           </a>
         </div>
@@ -90,6 +90,10 @@ export default {
   methods: {
     toggleSidebar() {
       this.$emit('toggle-sidebar');
+    },
+    logout() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push({ name: 'login' });
     },
   },
 };

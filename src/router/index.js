@@ -2,13 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import auth from '../middleware/auth';
 import guest from '../middleware/guest';
-import isAdmin from '../middleware/isAdmin';
 
 import Auth from '../pages/Auth.vue';
 import Home from '../pages/Home.vue';
-import HomeAdmin from '../pages/HomeAdmin.vue';
 
 const base = '/expense-tracker';
+
+import teamRouter from './userRouter';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -32,15 +32,7 @@ const router = createRouter({
         title: 'Dashboard',
       },
     },
-    {
-      path: `${base}/admin`,
-      name: 'home-admin',
-      component: HomeAdmin,
-      meta: {
-        middleware: isAdmin,
-        title: 'Dashboard Admin',
-      },
-    },
+    ...teamRouter,
   ],
 });
 

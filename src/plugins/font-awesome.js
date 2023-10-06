@@ -15,6 +15,10 @@ library.add(
     fs.faBell,
     fs.faHeart,
     fs.faSignOutAlt,
+    fs.faTools,
+    fs.faEdit,
+    fs.faLock,
+    fs.faTimes,
 );
 
 export default FontAwesomeIcon;

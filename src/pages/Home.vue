@@ -1,8 +1,9 @@
 <template>
   <CardContainer>
-    <h1>Home</h1>
-    <p>Welcome, {{ currentUser?.name }}</p>
-    <button @click="logout">Logout</button>
+    <div class="flex flex-col items-center justify-center h-full">
+      <font-awesome-icon icon="tools" class="text-6xl text-gray-500" />
+      <div class="text-2xl text-gray-500 mt-4">Under Construction</div>
+    </div>
   </CardContainer>
 </template>
 
@@ -13,17 +14,6 @@ export default {
   name: 'HomePage',
   components: {
     CardContainer,
-  },
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.user;
-    },
-  },
-  methods: {
-    logout() {
-      this.$store.dispatch('auth/logout');
-      this.$router.push({ name: 'login' });
-    },
-  },
+  }
 };
 </script>

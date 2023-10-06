@@ -1,6 +1,6 @@
 <template>
   <a
-    class="flex items-center sm:justify-center group-hover:sm:justify-start md:justify-start w-full h-12 px-3 mt-2 rounded-md hover:bg-gray-300 group-hover:justify-start cursor-pointer"
+    class="flex items-center sm:justify-center group-hover:sm:justify-start md:justify-start w-full h-12 px-3 mt-2 rounded-md hover:bg-gray-300 group-hover:justify-start cursor-pointer transition-all duration-300"
     :class="{
       'bg-gray-300': isActive,
     }"
