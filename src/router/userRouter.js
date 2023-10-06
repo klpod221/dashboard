@@ -2,9 +2,11 @@ import isAdmin from '../middleware/isAdmin';
 
 import User from '../pages/admin/User.vue';
 
+const base = '/expense-tracker';
+
 const userRouter = [
   {
-    path: `/admin/users`,
+    path: `${base}/admin/users`,
     name: 'users',
     component: User,
     meta: {

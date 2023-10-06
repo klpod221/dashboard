@@ -8,11 +8,13 @@ import Home from '../pages/Home.vue';
 
 import teamRouter from './userRouter';
 
+const base = '/expense-tracker';
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: `/login`,
+      path: `${base}/login`,
       name: 'login',
       component: Auth,
       meta: {
@@ -22,7 +24,7 @@ const router = createRouter({
       },
     },
     {
-      path: `/`,
+      path: `${base}/`,
       name: 'home',
       component: Home,
       meta: {
