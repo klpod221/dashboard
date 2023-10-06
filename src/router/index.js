@@ -11,7 +11,7 @@ const base = '/expense-tracker';
 import teamRouter from './userRouter';
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/expense-tracker/'),
   routes: [
     {
       path: `${base}/login`,
