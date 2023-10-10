@@ -1,7 +1,7 @@
 <template>
   <div
-    class="w-0 fixed z-50 h-full sm:h-[calc(100%-1.5rem)] sm:w-16 md:w-48 group hover:w-48 m-0 sm:m-3 transition-all duration-300 shadow-md"
-    :class="sidebarOpen ? 'w-48' : ''"
+    class="w-48 fixed z-40 h-full sm:h-[calc(100%-1.5rem)] transform sm:translate-x-0 sm:w-16 md:w-48 group hover:w-48 m-0 sm:m-3 transition-all duration-300 shadow-md"
+    :class="`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`"
     id="default-sidebar"
   >
     <div
@@ -9,7 +9,7 @@
     >
       <a class="flex justify-center w-auto md:w-full px-3 mt-4" href="#">
         <font-awesome-icon icon="home" class="text-2xl text-indigo-500" />
-        <span class="ml-2 text-xl font-bold sm:hidden group-hover:sm:block md:block">
+        <span class="ml-2 text-xl font-bold sm:hidden group-hover:sm:block md:block whitespace-nowrap">
           XLU Studio
         </span>
       </a>
@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <div class="fixed z-40 inset-0 bg-black opacity-50 block sm:hidden" v-if="sidebarOpen" />
+  <div class="fixed z-30 inset-0 bg-black opacity-50 block sm:hidden" v-if="sidebarOpen" />
 </template>
 
 <script>

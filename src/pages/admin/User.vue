@@ -43,7 +43,10 @@
     </form>
 
     <!-- button -->
-    <button class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-md text-sm">
+    <button
+      @click="toggleAddModal"
+      class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-md text-sm"
+    >
       <font-awesome-icon icon="plus" class="mr-2" />
       Add User
     </button>
@@ -83,7 +86,7 @@
             <td class="px-6 py-4">
               {{ user.email }}
             </td>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 whitespace-nowrap">
               {{ $formats.dateTime(user.createdAt) }}
             </td>
             <td class="px-6 py-4 capitalize text-center">
@@ -113,9 +116,7 @@
 
         <tbody v-else>
           <tr>
-            <td colspan="7" class="text-center py-4">
-              No data available
-            </td>
+            <td colspan="7" class="text-center py-4">No data available</td>
           </tr>
         </tbody>
       </table>
@@ -126,11 +127,21 @@
   <div class="flex items-center mt-4">
     <my-pagination :pagination="pagination" @change="getUserList" />
   </div>
+
+  <!-- modal -->
+  <my-side-modal header="Add user" :is-open="isOpenAddModal" @close="toggleAddModal" custom-class="w-80">
+    <add-user-form />
+  </my-side-modal>
 </template>
 
 <script>
+import AddUserForm from '../../components/pages/users/AddUserForm.vue';
+
 export default {
   name: 'UserPage',
+  components: {
+    AddUserForm,
+  },
   data() {
     return {
       userList: [],
@@ -145,6 +156,7 @@ export default {
         total: 0,
         totalPages: 1,
       },
+      isOpenAddModal: false,
     };
   },
   mounted() {
@@ -171,6 +183,9 @@ export default {
       } finally {
         this.$loading.hide();
       }
+    },
+    toggleAddModal() {
+      this.isOpenAddModal = !this.isOpenAddModal;
     },
   },
 };

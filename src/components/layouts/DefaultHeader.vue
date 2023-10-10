@@ -1,22 +1,11 @@
 <template>
-  <header class="bg-gray-300 fixed left-0 right-0 top-0 w-full z-40">
+  <header class="bg-gray-300 fixed left-0 right-0 top-0 w-full z-20">
     <div
       class="flex items-center justify-between m-3 sm:ml-22 md:ml-56 h-12 rounded-md bg-gray-100 p-3 shadow-md"
     >
       <div class="flex items-center">
         <button @click="toggleSidebar" class="text-gray-700 focus:outline-none">
-          <svg
-            class="w-6 h-6 sm:hidden md:hidden"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3 4.5C3 4.22386 3.22386 4 3.5 4H16.5C16.7761 4 17 4.22386 17 4.5C17 4.77614 16.7761 5 16.5 5H3.5C3.22386 5 3 4.77614 3 4.5ZM3 9.5C3 9.22386 3.22386 9 3.5 9H16.5C16.7761 9 17 9.22386 17 9.5C17 9.77614 16.7761 10 16.5 10H3.5C3.22386 10 3 9.77614 3 9.5ZM3.5 14C3.22386 14 3 14.2239 3 14.5C3 14.7761 3.22386 15 3.5 15H16.5C16.7761 15 17 14.7761 17 14.5C17 14.2239 16.7761 14 16.5 14H3.5Z"
-            />
-          </svg>
+          <font-awesome-icon icon="bars" class="text-lg block sm:hidden" />
         </button>
 
         <!-- page title -->

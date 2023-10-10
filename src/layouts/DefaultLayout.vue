@@ -28,6 +28,12 @@ export default {
       sidebarOpen: false,
     };
   },
+  // when route change, close sidebar
+  watch: {
+    $route () {
+      this.sidebarOpen = false;
+    },
+  },
   mounted () {
     if ($(window).width() < 768) {
       this.sidebarOpen = false;

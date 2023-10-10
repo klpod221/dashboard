@@ -2,7 +2,7 @@
   <div class="flex flex-wrap gap-2 items-center justify-center sm:justify-between relative w-full">
     <!-- item per page -->
     <div class="flex items-center justify-end w-full sm:w-auto rounded-md bg-gray-100 p-3">
-      <select class="bg-transparent" @change="$emit('change', 1)">
+      <select class="bg-transparent text-xs" @change="$emit('change', 1)">
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="50">50</option>
@@ -69,12 +69,12 @@
       </li>
     </ul>
 
-    <div class="hidden items-center sm:flex p-3 bg-gray-100 rounded-md shadow-md">
+    <div class="hidden items-center sm:block p-3 bg-gray-100 rounded-md shadow-md">
       <span class="text-sm mr-2">Page</span>
 
       <select
         v-if="pagination.totalPages"
-        class="bg-transparent"
+        class="bg-transparent text-sm"
         @change="onClickPage($event.target.value)"
       >
         <option v-for="page in pagination.totalPages" :key="page" :value="page">

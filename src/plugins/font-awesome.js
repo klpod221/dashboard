@@ -26,7 +26,7 @@ library.add(
     fs.faAngleLeft,
     fs.faAngleRight,
     fs.faTachometerAlt,
-    fs.faList
+    fs.faBars,
 );
 
 export default FontAwesomeIcon;
