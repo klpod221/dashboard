@@ -2,14 +2,10 @@ import axios from 'axios';
 import store from '../store';
 import router from '../router';
 
-axios.defaults.baseURL = 'https://klpod221-expense.vercel.app/';
-axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.headers.common['Accept'] = 'application/json';
-
 const token = localStorage.getItem('token');
 
 axios.defaults.baseURL =
-  import.meta.env.VITE_API_ENDPOINT || 'https://klpod221-expense.vercel.app/';
+  import.meta.env.VITE_API_ENDPOINT || 'https://klpod221.vercel.app/';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.headers.common['Accept'] = 'application/json';
 
