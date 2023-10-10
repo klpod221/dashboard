@@ -5,7 +5,7 @@
 
     <default-header :sidebar-open="sidebarOpen" @toggle-sidebar="toggleSidebar" />
 
-    <main class="mt-16 ml-0 sm:ml-18 md:ml-52 p-3 sm:pl-4 w-full overflow-hidden">
+    <main class="mt-20 ml-0 sm:ml-18 md:ml-52 p-3 sm:pl-4 w-full overflow-hidden">
       <slot />
     </main>
 

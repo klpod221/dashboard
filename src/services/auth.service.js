@@ -7,9 +7,13 @@ class AuthService {
       password,
     });
 
+    console.log(data);
+
     if (data.token) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
+
+      axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
     }
 
     return data;
@@ -24,6 +28,7 @@ class AuthService {
   }
 
   logout() {
+    localStorage.removeItem('user');
     localStorage.removeItem('token');
   }
 }

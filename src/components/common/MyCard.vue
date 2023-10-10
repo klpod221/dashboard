@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'CardContainer',
+  name: 'MyCard',
 };
 </script>
