@@ -7,11 +7,11 @@
     <div
       class="flex flex-col items-center w-full h-full overflow-hidden text-gray-700 bg-gray-100 rounded-md"
     >
-      <a class="flex items-center justify-center w-auto md:w-full px-3 mt-4" href="#">
-        <font-awesome-icon icon="coins" class="text-2xl text-indigo-500" />
-        <span class="ml-2 text-sm font-bold sm:hidden group-hover:sm:block md:block"
-          >Expense Tracker</span
-        >
+      <a class="flex justify-center w-auto md:w-full px-3 mt-4" href="#">
+        <font-awesome-icon icon="home" class="text-2xl text-indigo-500" />
+        <span class="ml-2 text-xl font-bold sm:hidden group-hover:sm:block md:block">
+          XLU Studio
+        </span>
       </a>
       <div class="w-full px-2">
         <div class="flex flex-col items-center w-full mt-3 border-t border-gray-300">
@@ -98,7 +98,7 @@ export default {
     return {
       sidebarUserItems: [
         {
-          icon: 'home',
+          icon: 'tachometer-alt',
           text: 'Dashboard',
           route: {
             name: 'home',

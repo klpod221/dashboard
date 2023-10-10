@@ -46,7 +46,7 @@ function nextFactory(context, middleware, index) {
 }
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title ? `${to.meta.title} | Expense Tracker` : 'Expense Tracker';
+  document.title = to.meta.title ? `${to.meta.title} | XLU Studio` : 'XLU Studio';
 
   if (!to.meta.middleware) return next();
 

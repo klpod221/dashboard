@@ -7,7 +7,6 @@ library.add(
     fs.faHome,
     fs.faSearch,
     fs.faChartLine,
-    fs.faCoins,
     fs.faFileAlt,
     fs.faUser,
     fs.faUserFriends,
@@ -26,6 +25,7 @@ library.add(
     fs.faAngleDoubleRight,
     fs.faAngleLeft,
     fs.faAngleRight,
+    fs.faTachometerAlt
 );
 
 export default FontAwesomeIcon;

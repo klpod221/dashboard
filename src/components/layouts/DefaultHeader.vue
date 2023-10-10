@@ -34,7 +34,7 @@
 
       <div class="flex items-center">
         <!-- notification -->
-        <div class="flex items-center mr-6 mt-1.5 relative">
+        <div class="flex items-center mr-6 relative">
           <font-awesome-icon icon="bell" class="text-lg" />
 
           <!-- notification badge -->
