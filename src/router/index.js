@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 import auth from '../middleware/auth';
 import guest from '../middleware/guest';
@@ -8,13 +8,11 @@ import Home from '../pages/Home.vue';
 
 import teamRouter from './userRouter';
 
-const base = '/expense-tracker';
-
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
-      path: `${base}/login`,
+      path: `/login`,
       name: 'login',
       component: Auth,
       meta: {
@@ -24,7 +22,7 @@ const router = createRouter({
       },
     },
     {
-      path: `${base}/`,
+      path: `/`,
       name: 'home',
       component: Home,
       meta: {
