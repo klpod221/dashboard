@@ -1,24 +1,20 @@
 <template>
   <div class="flex flex-wrap gap-2 items-center justify-center sm:justify-between relative w-full">
     <!-- item per page -->
-    <div class="flex items-center justify-end w-full sm:w-auto">
-      <select
-        class="rounded-md bg-gray-100 px-3 py-2 text-gray-600 hover:bg-gray-200 text-sm shadow-md"
-        @change="$emit('change', 1)"
-      >
+    <div class="flex items-center justify-end w-full sm:w-auto rounded-md bg-gray-100 p-3">
+      <select class="bg-transparent" @change="$emit('change', 1)">
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="50">50</option>
       </select>
-      <span class="text-sm text-gray-600 ml-2">entries</span>
+      <span class="text-sm ml-2">entries</span>
     </div>
 
     <!-- pagination -->
     <ul class="list-none flex gap-3 bg-gray-100 rounded-md shadow-md p-1 w-fit">
       <li class="inline-block">
         <button
-          class="rounded-md bg-gray-100 px-3 py-2 text-gray-600 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300"
-          :class="{ 'cursor-not-allowed text-gray-400': isInFirstPage }"
+          class="rounded-md bg-gray-100 px-3 py-2 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           :disabled="isInFirstPage"
           @click.prevent="onClickFirstPage"
           aria-label="Go to first page"
@@ -29,8 +25,7 @@
 
       <li class="inline-block">
         <button
-          class="rounded-md bg-gray-100 px-3 py-2 text-gray-600 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300"
-          :class="{ 'cursor-not-allowed text-gray-400': isInFirstPage }"
+          class="rounded-md bg-gray-100 px-3 py-2 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           :disabled="isInFirstPage"
           @click.prevent="onClickPreviousPage"
           aria-label="Go to previous page"
@@ -41,7 +36,7 @@
 
       <li v-for="page in pages" class="inline-block" :key="page.name">
         <button
-          class="rounded-md bg-gray-100 px-3 py-2 text-gray-600 hover:bg-gray-200 text-sm w-9 h-9"
+          class="rounded-md bg-gray-100 px-3 py-2 hover:bg-gray-200 text-sm w-9 h-9 disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{ 'bg-gray-200 text-blue-500': isPageActive(page.name) }"
           :disabled="page.isDisabled"
           @click.prevent="onClickPage(page.name)"
@@ -53,8 +48,7 @@
 
       <li class="inline-block">
         <button
-          class="rounded-md bg-gray-100 px-3 py-2 text-gray-600 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300"
-          :class="{ 'cursor-not-allowed text-gray-400': isInLastPage }"
+          class="rounded-md bg-gray-100 px-3 py-2 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           :disabled="isInLastPage"
           @click.prevent="onClickNextPage"
           aria-label="Go to next page"
@@ -65,8 +59,7 @@
 
       <li class="inline-block">
         <button
-          class="rounded-md bg-gray-100 px-3 py-2 text-gray-600 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300"
-          :class="{ 'cursor-not-allowed text-gray-400': isInLastPage }"
+          class="rounded-md bg-gray-100 px-3 py-2 hover:bg-gray-200 text-sm w-9 h-9 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           :disabled="isInLastPage"
           @click.prevent="onClickLastPage"
           aria-label="Go to last page"
@@ -76,8 +69,22 @@
       </li>
     </ul>
 
-    <div class="hidden items-center sm:flex">
-      {{ pagination.page }} of {{ pagination.totalPages }}
+    <div class="hidden items-center sm:flex p-3 bg-gray-100 rounded-md shadow-md">
+      <span class="text-sm mr-2">Page</span>
+
+      <select
+        v-if="pagination.totalPages"
+        class="bg-transparent"
+        @change="onClickPage($event.target.value)"
+      >
+        <option v-for="page in pagination.totalPages" :key="page" :value="page">
+          {{ page }}
+        </option>
+      </select>
+
+      <span v-else class="text-sm">0</span>
+
+      <span class="text-sm ml-2"> of {{ pagination.totalPages }} </span>
     </div>
   </div>
 </template>
@@ -131,10 +138,10 @@ export default {
       return pages;
     },
     isInFirstPage() {
-      return this.pagination.page === 1;
+      return this.pagination.page <= 1;
     },
     isInLastPage() {
-      return this.pagination.page === this.pagination.totalPages;
+      return this.pagination.page >= this.pagination.totalPages;
     },
   },
   methods: {

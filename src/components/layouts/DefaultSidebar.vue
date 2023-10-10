@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import SidebarItem from '../common/SidebarItem.vue';
+import SidebarItem from '../layouts/SidebarItem.vue';
 
 export default {
   name: 'DefaultSidebar',

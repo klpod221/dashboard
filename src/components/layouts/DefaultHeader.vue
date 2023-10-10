@@ -27,9 +27,7 @@
 
       <!-- timer and weather -->
       <div class="flex items-center text-sm font-medium">
-        {{ datetime.month }} {{ datetime.date }}, {{ datetime.hours }}:{{ datetime.minutes }}:{{
-          datetime.seconds
-        }}
+        {{ datetime }}
       </div>
 
       <div class="flex items-center">
@@ -95,13 +93,7 @@ export default {
   data() {
     return {
       title: this.$route.meta.title,
-      datetime: {
-        month: '00', // 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember
-        date: '00', // 01 - 31
-        hours: '00', // 00 - 23
-        minutes: '00', // 00 - 59
-        seconds: '00', // 00 - 59
-      },
+      datetime: '',
     };
   },
   beforeUnmount() {
@@ -109,13 +101,9 @@ export default {
   },
   created() {
     this.timer = setInterval(() => {
-      const date = new Date();
-      this.datetime.hours = this.addZero(date.getHours());
-      this.datetime.minutes = this.addZero(date.getMinutes());
-      this.datetime.seconds = this.addZero(date.getSeconds());
-
-      this.datetime.date = this.addZero(date.getDate());
-      this.datetime.month = date.toLocaleString('default', { month: 'short' });
+      // Oct 10, 2021 10:10:10
+      const format = 'MMM DD, HH:mm:ss';
+      this.datetime = this.$moment().format(format);
     }, 1000);
   },
   computed: {
@@ -135,9 +123,6 @@ export default {
     logout() {
       this.$store.dispatch('auth/logout');
       this.$router.push({ name: 'login' });
-    },
-    addZero(number) {
-      return number < 10 ? `0${number}` : number;
     },
   },
 };
