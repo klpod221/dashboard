@@ -10,7 +10,7 @@ defineRule('required', (value) => {
 
 defineRule('email', (value) => {
   if (!value || !value.length) {
-    return 'This field is required';
+    return true;
   }
 
   const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -23,7 +23,7 @@ defineRule('email', (value) => {
 
 defineRule('password', (value) => {
   if (!value || !value.length) {
-    return 'This field is required';
+    return true;
   }
 
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;

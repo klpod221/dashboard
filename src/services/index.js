@@ -1,9 +1,9 @@
 import auth from "./auth.service";
-import user from "./user.service";
+import users from "./users.service";
 
 const service = {
   auth,
-  user,
+  users,
 };
 
 export default service;

@@ -1,38 +1,47 @@
 <template>
   <main class="flex items-center justify-center h-screen overflow-hidden">
-    <div class="flex flex-col w-full max-w-sm p-10 bg-white rounded-lg shadow-md">
+    <div class="w-full max-w-xs">
       <h1 class="mb-5 text-3xl font-bold text-center">XLU Studio</h1>
-      <FormValidate @submit="onSubmit" :validation-schema="validationSchema" v-slot="{ errors }">
-        <div class="mb-5">
-          <label for="email" class="block mb-2 text-sm font-medium text-gray-600">Email</label>
-          <Field
+      <form-validate
+        @submit="onSubmit"
+        :validation-schema="validationSchema"
+        v-slot="{ errors }"
+        class="bg-gray-100 shadow-md rounded-md px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2" for="email">Email</label>
+          <field
             type="email"
             name="email"
             autofocus
-            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            placeholder="Email"
+            class="shadow appearance-none border rounded-md w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            :class="{ 'border-red-500': errors.email }"
           />
-          <span class="text-red-500 text-xs"> {{ errors.email }} </span>
+          <p class="text-red-500 text-xs italic mt-2">{{ errors.email }}</p>
         </div>
-        <div class="mb-5">
-          <label for="password" class="block mb-2 text-sm font-medium text-gray-600"
-            >Password</label
-          >
-          <Field
+        <div class="mb-6">
+          <label class="block text-sm font-medium mb-2" for="password">Password</label>
+          <field
             type="password"
             name="password"
             autocomplete="current-password"
-            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            placeholder="******************"
+            class="shadow appearance-none border rounded-md w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            :class="{ 'border-red-500': errors.password }"
           />
-          <span class="text-red-500 text-xs"> {{ errors.password }} </span>
+          <p class="text-red-500 text-xs italic mt-2">{{ errors.password }}</p>
         </div>
-        <div class="mb-5">
+        <div class="flex items-center w-full">
           <button
-            class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
+            class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
+            type="submit"
           >
-            Login
+            Sign In
           </button>
         </div>
-      </FormValidate>
+      </form-validate>
+      <p class="text-center text-gray-500 text-xs">&copy;2023 XLU Studio. All rights reserved.</p>
     </div>
   </main>
 </template>
@@ -61,11 +70,7 @@ export default {
         await this.$store.dispatch('auth/login', values);
         this.$router.push({ name: 'home' });
       } catch (error) {
-        this.$swal({
-          icon: 'error',
-          title: 'Login failed!',
-          text: error.response.data.message || 'Something went wrong!',
-        });
+        this.$toast.error(error);
       } finally {
         this.$loading.hide();
       }

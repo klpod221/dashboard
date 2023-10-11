@@ -17,6 +17,7 @@ library.add(
     fs.faTools,
     fs.faEdit,
     fs.faLock,
+    fs.faUnlockAlt,
     fs.faTimes,
     fs.faClock,
     fs.faCalendar,
@@ -27,6 +28,7 @@ library.add(
     fs.faAngleRight,
     fs.faTachometerAlt,
     fs.faBars,
+    fs.faRefresh
 );
 
 export default FontAwesomeIcon;
