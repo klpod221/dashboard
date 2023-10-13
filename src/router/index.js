@@ -1,36 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-import auth from '../middleware/auth';
-import guest from '../middleware/guest';
-
-import Auth from '../pages/Auth.vue';
-import Home from '../pages/Home.vue';
-
-import teamRouter from './userRouter';
+import authRoute from './authRoute';
+import userRoute from './userRoute';
+import adminRoute from './adminRoute';
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    {
-      path: `/login`,
-      name: 'login',
-      component: Auth,
-      meta: {
-        middleware: guest,
-        layout: 'AuthLayout',
-        title: 'Login',
-      },
-    },
-    {
-      path: `/`,
-      name: 'home',
-      component: Home,
-      meta: {
-        middleware: auth,
-        title: 'Dashboard',
-      },
-    },
-    ...teamRouter,
+    ...authRoute,
+    ...adminRoute,
+    ...userRoute,
   ],
 });
 

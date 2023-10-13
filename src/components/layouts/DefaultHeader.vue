@@ -51,9 +51,12 @@
           <div
             class="absolute z-50 left-0 top-8 w-100 bg-white border border-gray-300 rounded-md shadow-md group-hover:block hidden"
           >
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+            <router-link
+              :to="{ name: 'profile' }"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
               <font-awesome-icon icon="user" class="mr-2 w-4" /> Profile
-            </a>
+            </router-link>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
               <font-awesome-icon icon="cog" class="mr-2 w-4" /> Settings
             </a>

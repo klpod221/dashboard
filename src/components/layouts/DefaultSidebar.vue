@@ -9,7 +9,9 @@
     >
       <a class="flex justify-center w-auto md:w-full px-3 mt-4" href="#">
         <font-awesome-icon icon="home" class="text-2xl text-indigo-500" />
-        <span class="ml-2 text-xl font-bold sm:hidden group-hover:sm:block md:block whitespace-nowrap">
+        <span
+          class="ml-2 text-xl font-bold sm:hidden group-hover:sm:block md:block whitespace-nowrap"
+        >
           XLU Studio
         </span>
       </a>
@@ -39,9 +41,9 @@
           />
         </div>
       </div>
-      <a
+      <router-link
         class="flex items-center justify-center w-full h-16 mt-auto bg-gray-200 hover:bg-gray-300"
-        href="#"
+        :to="{ name: 'profile' }"
       >
         <font-awesome-icon
           icon="user"
@@ -50,7 +52,7 @@
         <span class="ml-2 text-sm font-medium sm:hidden group-hover:sm:block md:block"
           >Account</span
         >
-      </a>
+      </router-link>
     </div>
   </div>
 
