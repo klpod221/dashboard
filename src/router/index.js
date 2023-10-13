@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import auth from '../middleware/auth';
 import guest from '../middleware/guest';
@@ -9,7 +9,7 @@ import Home from '../pages/Home.vue';
 import teamRouter from './userRouter';
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: `/login`,
