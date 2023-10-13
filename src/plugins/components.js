@@ -4,6 +4,7 @@ import MyModal from "../components/common/MyModal.vue";
 import MySideModal from "../components/common/MySideModal.vue";
 import MyTable from "../components/common/MyTable.vue";
 import MyTableFilter from "../components/common/MyTableFilter.vue";
+import MySelect from "../components/common/MySelect.vue";
 
 const components = {
   MyCard,
@@ -11,7 +12,8 @@ const components = {
   MyModal,
   MySideModal,
   MyTable,
-  MyTableFilter
+  MyTableFilter,
+  MySelect
 };
 
 const registerComponents = (app) => {

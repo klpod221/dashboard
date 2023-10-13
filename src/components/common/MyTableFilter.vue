@@ -12,18 +12,14 @@
     />
 
     <!-- option -->
-    <select
+    <my-select
       v-for="option in optionList"
-      @change="$emit('submit')"
       :key="option"
       v-model="query[option]"
-      class="py-3 px-5 rounded-md text-sm focus:outline-none w-auto bg-gray-100 shadow-md"
-    >
-      <option value="">{{ option }}</option>
-      <option v-for="item in options[option]" :key="item.value" :value="item.value">
-        {{ item.label }}
-      </option>
-    </select>
+      @change="$emit('submit')"
+      :options="options[option]"
+      :placeholder="option"
+    />
 
     <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-3 rounded-md text-sm">
       <font-awesome-icon icon="search" class="mr-2" />
