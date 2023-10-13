@@ -33,4 +33,17 @@ export default {
       text: getMessage(data),
     });
   },
+
+  async confirm(data) {
+    const confirm = await Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure?',
+      text: getMessage(data),
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    })
+
+    return confirm.isConfirmed;
+  },
 };

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class UserService {
+class UsersService {
   async getAll(query) {
     const { data } = await axios.get('admin/users', { params: query });
     return data;
@@ -20,6 +20,11 @@ class UserService {
     const response = await axios.put(`admin/users/${id}`, data);
     return response.data;
   }
+
+  async updateStatus(id, status = '') {
+    const response = await axios.put(`admin/users/${id}/status`, { status });
+    return response.data;
+  }
 }
 
-export default new UserService();
+export default new UsersService();
