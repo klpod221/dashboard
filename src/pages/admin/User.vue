@@ -3,39 +3,7 @@
     class="flex flex-col items-left justify-between gap-x-2 gap-y-4 mb-4 sm:gap-y-2 sm:flex-row sm:items-center"
   >
     <!-- filter -->
-    <my-table-filter
-      v-model="query"
-    >
-      <!-- select option -->
-      <select
-        v-model="query.status"
-        @change="getUserList"
-        class="py-3 px-5 rounded-md text-sm focus:outline-none bg-gray-100 shadow-md"
-      >
-        <option value="">Status</option>
-        <option v-for="option in options.status" :key="option.value" :value="option.value">
-          {{ option.label }}
-        </option>
-      </select>
-
-      <!-- select option -->
-      <select
-        v-model="query.roles"
-        @change="getUserList"
-        class="py-3 px-5 rounded-md text-sm focus:outline-none bg-gray-100 shadow-md"
-      >
-        <option value="">Role</option>
-        <option v-for="option in options.roles" :key="option.value" :value="option.value">
-          {{ option.label }}
-        </option>
-      </select>
-
-      <!-- button -->
-      <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-3 rounded-md text-sm">
-        <font-awesome-icon icon="search" class="mr-2" />
-        Search
-      </button>
-    </my-table-filter>
+    <my-table-filter v-model="query" :options="options" @submit="getUserList" />
 
     <!-- button -->
     <button
@@ -106,7 +74,6 @@ export default {
     return {
       userList: [],
       query: {
-        search: '',
         status: '',
         roles: '',
       },
